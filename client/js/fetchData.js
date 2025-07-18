@@ -3,8 +3,8 @@ export async function fetchProducts(selectedApiCategory) {
     document.getElementById("loading-spinner").style.display = "block";
 
     const res = await fetch(
-      `http://localhost:3000/api/message?category=${selectedApiCategory}`
-    );
+  `/api/message?category=${selectedApiCategory}`
+);
     const data = await res.json();
     return data;
   } catch (e) {
