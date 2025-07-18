@@ -35,7 +35,7 @@ app.get("/api/message", async (req, res) => {
   try {
     while (namedProducts.length < count && page <= 10) {
       const url = `${baseUrl}?page=${page}&page_size=100`;
-      const apiResponse = await withTimeout(fetch(url), 10000);
+      const apiResponse = await withTimeout(fetch(url), 1000);
       const apiData = await apiResponse.json();
 
       if (!apiData.products || apiData.products.length === 0) break;
@@ -70,11 +70,9 @@ app.get("/api/message", async (req, res) => {
         `Failed to read local file for ${category}`,
         fileError.message
       );
-      res
-        .status(500)
-        .json({
-          error: "Failed to fetch data from both API and local backup.",
-        });
+      res.status(500).json({
+        error: "Failed to fetch data from both API and local backup.",
+      });
     }
   }
 });
