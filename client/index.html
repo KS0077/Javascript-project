@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>OpenFoodFacts Viewer</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="controls">
+      <select id="category-api-selector">
+        <option value="snacks">Snacks</option>
+        <option value="plant-based-foods">Plant-based foods</option>
+        <option value="frozen-foods">Frozen foods</option>
+        <option value="canned-foods">Canned foods</option>
+        <option value="beverages">Beverages</option>
+        <option value="fermented-foods">Fermented foods</option>
+      </select>
+      <button id="bt1">Fetch Products</button>
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Search by product name..."
+      />
+      <select id="category-filter">
+        <option id="default-option" value="all-categories">
+          All Categories
+        </option>
+      </select>
+    </div>
+
+    <div id="product-list"></div>
+    <div id="loading-spinner">Loading...</div>
+    <button id="show-more">Show More</button>
+
+    <div id="product-modal" class="modal hidden">
+      <div class="modal-content">
+        <span id="close-modal" class="close-btn">&times;</span>
+        <h2 id="modal-title"></h2>
+        <img id="modal-image" src="" alt="Product Image" />
+        <p><strong>Brand:</strong> <span id="modal-brand"></span></p>
+        <p>
+          <strong>Ingredients:</strong> <span id="modal-ingredients"></span>
+        </p>
+        <p><strong>Energy per 100g:</strong> <span id="modal-energy"></span></p>
+        <p>
+          <strong>Nutrients Levels per 100g:</strong>
+          <span id="modal-nutrients"></span>
+        </p>
+        <p><strong>Nutri-score:</strong> <span id="modal-nutriscore"></span></p>
+        <p><strong>Additives:</strong> <span id="modal-additives"></span></p>
+      </div>
+    </div>
+
+    <div id="compare-modal" class="modal hidden">
+      <div class="modal-content">
+        <span id="close-compare" class="close-btn">&times;</span>
+        <h4 id="compare-head"></h4>
+        <div id="comparison-table"></div>
+      </div>
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
