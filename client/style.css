@@ -23,7 +23,7 @@ select,
 input {
   font-family: inherit;
   font-size: 16px;
-  padding: 8px 12px;
+  padding: 10px 14px;
   border: 1px solid #ccc;
   border-radius: 6px;
   margin: 5px 0;
@@ -56,29 +56,26 @@ input:focus {
   justify-content: center;
 }
 
+/* Default desktop styles — FIXED height product cards */
 .product {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  text-align: center;
+  width: 180px;
+  height: 320px; /* or any consistent value */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  padding: 12px;
-  width: 220px;
-  min-height: 340px;
-  text-align: center;
-  transition: transform 0.3s;
-  flex: 1 1 220px;
-  max-width: 220px;
-  position: relative;
+  box-sizing: border-box;
 }
 
+/* Image inside product */
 .product img {
-  width: 100px;
-  height: 100px;
+  max-width: 100%;
+  max-height: 160px;
   object-fit: contain;
-  margin: 8px 0;
 }
 
 .product:hover {
@@ -93,6 +90,7 @@ input:focus {
   max-height: 3.6em;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin: 8px 0;
 }
 
 .compare-btn {
@@ -146,10 +144,6 @@ input:focus {
   -webkit-overflow-scrolling: touch;
 }
 
-.modal.hidden {
-  display: none;
-}
-
 .modal-content {
   background: #ffffff;
   padding: 24px;
@@ -161,6 +155,9 @@ input:focus {
   position: relative;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   margin-bottom: 12px;
+}
+.modal.hidden {
+  display: none;
 }
 
 .modal-content h2,
@@ -273,7 +270,8 @@ input:focus {
   transition: border 0.3s, box-shadow 0.3s;
 }
 
-/* ========= MOBILE FRIENDLY LAYOUT ========= */
+/* ===== MOBILE STYLING ===== */
+
 @media (max-width: 768px) {
   body {
     font-size: 18px;
@@ -282,7 +280,8 @@ input:focus {
 
   .controls {
     flex-direction: column;
-    gap: 14px;
+    gap: 16px;
+    align-items: stretch;
   }
 
   .controls select,
@@ -294,18 +293,27 @@ input:focus {
   }
 
   #product-list {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
+  }
+
+  .product {
+    height: auto;
+  }
+
+  .product img {
+    width: 140px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
   }
 
   .product {
     padding: 20px;
     font-size: 18px;
-  }
-
-  .product img {
-    width: 160px;
-    height: auto;
+    width: 100%;
+    max-width: 100%;
   }
 
   .product h3 {
@@ -316,6 +324,11 @@ input:focus {
   .compare-btn {
     font-size: 18px;
     padding: 12px;
+  }
+  .modal {
+    display: block;
+    align-items: initial;
+    justify-content: initial;
   }
 
   #bt1,
@@ -329,6 +342,14 @@ input:focus {
     font-size: 16px;
     padding: 12px;
   }
+
+  .modal-content {
+    width: 95%;
+    max-width: 100%;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
 @media (max-width: 480px) {
@@ -338,7 +359,7 @@ input:focus {
   }
 
   .controls {
-    gap: 16px;
+    gap: 18px;
   }
 
   .controls select,
@@ -377,5 +398,13 @@ input:focus {
   #comparison-table th {
     font-size: 18px;
     padding: 14px;
+  }
+
+  .modal-content {
+    width: 95%;
+    max-width: 100%;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }
